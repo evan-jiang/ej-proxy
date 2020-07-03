@@ -1,4 +1,4 @@
-package com.ej.proxy.proxy.ejp;
+package com.ej.proxy.ejp;
 
 import javassist.*;
 

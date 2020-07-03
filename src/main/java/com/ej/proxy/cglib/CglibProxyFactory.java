@@ -1,4 +1,4 @@
-package com.ej.proxy.proxy.cglib;
+package com.ej.proxy.cglib;
 
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;

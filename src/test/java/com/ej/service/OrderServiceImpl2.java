@@ -1,6 +1,6 @@
-package com.ej.proxy.service;
+package com.ej.service;
 
-import com.ej.proxy.dto.OrderDto;
+import com.ej.dto.OrderDto;
 
 import java.util.UUID;
 

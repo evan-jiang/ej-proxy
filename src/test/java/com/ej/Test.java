@@ -1,15 +1,15 @@
-package com.ej.proxy;
+package com.ej;
 
 
-import com.ej.proxy.proxy.ejp.ClassEjProxyHandler;
-import com.ej.proxy.proxy.ejp.EjProxyFactory;
-import com.ej.proxy.proxy.jdk.JdkProxyHandler;
-import com.ej.proxy.service.OrderServiceImpl2;
-import com.ej.proxy.proxy.cglib.CglibProxyFactory;
-import com.ej.proxy.dto.OrderDto;
-import com.ej.proxy.proxy.jdk.JdkProxyFactory;
-import com.ej.proxy.service.OrderService;
-import com.ej.proxy.service.OrderServiceImpl;
+import com.ej.dto.OrderDto;
+import com.ej.proxy.cglib.CglibProxyFactory;
+import com.ej.proxy.ejp.ClassEjProxyHandler;
+import com.ej.proxy.ejp.EjProxyFactory;
+import com.ej.proxy.jdk.JdkProxyFactory;
+import com.ej.proxy.jdk.JdkProxyHandler;
+import com.ej.service.OrderServiceImpl2;
+import com.ej.service.OrderService;
+import com.ej.service.OrderServiceImpl;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
 
