@@ -5,11 +5,19 @@ import java.lang.reflect.Proxy;
 
 public class JdkProxyFactory {
 
-    public static <T> T getProxy(JdkProxyHandler<T> jdkProxyHandler) {
+    public static <T> T getProxy(T target,InvocationHandler invocationHandler) {
         return (T) Proxy.newProxyInstance(
-                jdkProxyHandler.getTarget().getClass().getClassLoader(),
-                jdkProxyHandler.getTarget().getClass().getInterfaces(),
-                jdkProxyHandler
+                target.getClass().getClassLoader(),
+                target.getClass().getInterfaces(),
+                invocationHandler
+        );
+    }
+
+    public static <T> T getProxy(Class<?> interfaceClass,InvocationHandler invocationHandler) {
+        return (T) Proxy.newProxyInstance(
+                JdkProxyFactory.class.getClassLoader(),
+                new Class[]{interfaceClass},
+                invocationHandler
         );
     }
 }

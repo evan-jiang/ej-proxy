@@ -2,7 +2,7 @@ package com.ej.proxy.ejp;
 
 import java.lang.reflect.Method;
 
-public interface EjProxyHandler {
+interface EjProxyHandler {
 
     void before(Object target, Method method ,Object[] args);
 
