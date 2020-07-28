@@ -12,12 +12,4 @@ public class JdkProxyFactory {
                 jdkProxyHandler
         );
     }
-
-    public static <T> T getProxy(T target, InvocationHandler invocationHandler) {
-        return (T) Proxy.newProxyInstance(
-                target.getClass().getClassLoader(),
-                target.getClass().getInterfaces(),
-                invocationHandler
-        );
-    }
 }
