@@ -31,6 +31,8 @@ public class Main {
         orderService = JdkProxyFactory.getProxy(OrderService.class, new JdkInterfaceProxyHandler());
         orderDto = new OrderDto(UUID.randomUUID().toString());
         orderService.save(orderDto);
+        System.out.println();
+        System.out.println(orderService.toString());
     }
 
     @Test
@@ -52,19 +54,19 @@ public class Main {
     }
 
     @Test
-    public void ej() throws Exception {
+    public void ejp() throws Exception {
         OrderDto orderDto = new OrderDto(UUID.randomUUID().toString());
         //代理没有接口的类
-        ComputerOrderService computerOrderService = EjProxyFactory.newEjProxy(new ComputerOrderService(), new EjClassProxyHandler());
+        ComputerOrderService computerOrderService = EjProxyFactory.newEjProxy(new ComputerOrderService(), new EjpClassProxyHandler());
         computerOrderService.save(orderDto);
         System.out.println();
         //代理有接口的类
-        OrderService orderService = EjProxyFactory.newEjProxy(new CapOrderService(), new EjClassProxyHandler());
+        OrderService orderService = EjProxyFactory.newEjProxy(new CapOrderService(), new EjpClassProxyHandler());
         orderDto = new OrderDto(UUID.randomUUID().toString());
         orderService.save(orderDto);
         System.out.println();
         //代理接口
-        orderService = EjProxyFactory.newInterfaceEjProxy(OrderService.class, new EjInterfaceProxyHandler());
+        orderService = EjProxyFactory.newInterfaceEjProxy(OrderService.class, new EjpInterfaceProxyHandler());
         orderDto = new OrderDto(UUID.randomUUID().toString());
         orderService.save(orderDto);
     }
@@ -126,7 +128,7 @@ public class Main {
         JdkClassProxyHandler<OrderService> jdkClassProxyHandler = new JdkClassProxyHandler<>(new CapOrderService());
         OrderService jdkOrderService = JdkProxyFactory.getProxy(jdkClassProxyHandler.getTarget(), jdkClassProxyHandler);
         OrderService cglibOrderService = CglibProxyFactory.getProxyByClass(CapOrderService.class, new CglibClassProxyHandler());
-        OrderService ejOrderService = EjProxyFactory.newEjProxy(new CapOrderService(),new EjClassProxyHandler());
+        OrderService ejOrderService = EjProxyFactory.newEjProxy(new CapOrderService(),new EjpClassProxyHandler());
         Long jdk = getExecuteTime(jdkOrderService, orderDto, times);
         Long cglib = getExecuteTime(cglibOrderService, orderDto, times);
         Long ej = getExecuteTime(ejOrderService, orderDto, times);

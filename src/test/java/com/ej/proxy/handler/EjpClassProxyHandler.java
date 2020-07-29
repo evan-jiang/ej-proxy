@@ -1,20 +1,14 @@
 package com.ej.proxy.handler;
 
-import com.ej.proxy.ejp.InterfaceEjProxyHandler;
+import com.ej.proxy.ejp.ClassEjProxyHandler;
 import com.ej.proxy.utils.PrintUtils;
 
 import java.lang.reflect.Method;
 
-public class EjInterfaceProxyHandler extends InterfaceEjProxyHandler {
+public class EjpClassProxyHandler extends ClassEjProxyHandler {
     @Override
     public void before(Object target, Method method, Object[] args) {
         PrintUtils.print("执行目标方法前我可以干点啥呢？？？");
-    }
-
-    @Override
-    public Object current(Object target, Method method, Object[] args) {
-        PrintUtils.print("代理接口，可以自定义执行代码(RPC,MyBatis...)");
-        return null;
     }
 
     @Override
